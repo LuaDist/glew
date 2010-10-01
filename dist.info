@@ -1,0 +1,10 @@
+--- This file is part of LuaDist project
+
+name = "glew"
+version = "1.5.4"
+
+desc = "The OpenGL Extension Wrangler Library."
+author = "Milan Ikits, Marcelo Magallon"
+license = "BSD"
+url = "http://glew.sourceforge.net/"
+maintainer = "Peter Drahoš"
