@@ -1,25 +1,26 @@
-# Copyright (C) 2007-2009 LuaDist.
+# Copyright (C) 2007-2012 LuaDist.
 # Created by Peter Drahoš
 # Redistribution and use of this file is allowed according to the terms of the MIT license.
 # For details see the COPYRIGHT file distributed with LuaDist.
 # Please note that the package source code is licensed under its own license.
 
-PROJECT(glew C)
-CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
-INCLUDE(dist.cmake)
+project ( glew C )
+cmake_minimum_required(VERSION 2.8)
+include ( cmake/dist.cmake )
 
-FIND_PACKAGE(OpenGL REQUIRED)
-INCLUDE_DIRECTORIES(include ${OPENGL_INCLUDE_DIR})
+find_package ( OpenGL REQUIRED )
+include_directories ( include ${OPENGL_INCLUDE_DIR} )
 
-ADD_LIBRARY(glew SHARED src/glew.c)
-TARGET_LINK_LIBRARIES(glew ${OPENGL_LIBRARIES})
+add_library ( glew src/glew.c )
+target_link_libraries ( glew ${OPENGL_LIBRARIES} )
 
-ADD_EXECUTABLE(glewinfo src/glewinfo.c)
-TARGET_LINK_LIBRARIES(glewinfo glew)
+add_executable ( glewinfo src/glewinfo.c )
+target_link_libraries ( glewinfo glew )
 
-ADD_EXECUTABLE(visualinfo src/visualinfo.c)
-TARGET_LINK_LIBRARIES(visualinfo glew)
+add_executable ( visualinfo src/visualinfo.c )
+target_link_libraries ( visualinfo glew )
 
-INSTALL(TARGETS glewinfo visualinfo glew RUNTIME DESTINATION ${INSTALL_BIN} LIBRARY DESTINATION ${INSTALL_LIB} ARCHIVE DESTINATION ${INSTALL_LIB})
-INSTALL(DIRECTORY include/ DESTINATION ${INSTALL_INC})
-INSTALL(FILES LICENSE.txt README.txt DESTINATION ${INSTALL_DATA})
+install_executable ( glewinfo visualinfo )
+install_library ( glew )
+install_header ( include/ )
+install_data ( LICENSE.txt README.txt )
