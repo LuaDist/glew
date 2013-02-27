@@ -1,0 +1,29 @@
+type = "x86_64"
+arch = "Ubuntu"
+author = "Milan Ikits, Marcelo Magallon"
+desc = "The OpenGL Extension Wrangler Library."
+name = "glew"
+maintainer = "Peter Drahoš"
+files = {
+Runtime = {
+[[bin/glewinfo]],
+[[bin/visualinfo]],
+[[lib/libglew.so]],
+}
+,
+Header = {
+[[include//GL/glew.h]],
+[[include//GL/glxew.h]],
+[[include//GL/wglew.h]],
+}
+,
+Data = {
+[[share/glew/LICENSE.txt]],
+[[share/glew/README.txt]],
+}
+,
+}
+
+license = "BSD"
+url = "http://glew.sourceforge.net/"
+version = "1.5.4"
